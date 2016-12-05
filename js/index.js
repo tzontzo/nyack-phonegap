@@ -904,7 +904,9 @@ var app = {
         $('#contentFrame').attr('src', schoolProtocol + '://' + schoolDomain + '/');
     },
     registerNotifications: function() {
+    	console.log('PUSH: calling registerNotifications');
     	if (navigator.userAgent.match(/Android/i)) {
+    		console.log('PUSH: running Android');
     		var options = {
     			android: {
 					senderID: androidSenderID,
@@ -924,12 +926,16 @@ var app = {
 		
 		var push = PushNotification.init(options);
 		
+		console.log('PUSH: initialized push');
+		
         var pushToken = store.getItem('pushToken');
         if (pushToken) {
+        	console.log('PUSH: got token in local storage: ' + pushToken);
             app.storeToken(pushToken);
         } else {
             try {
 				push.on('registration', function(data) {
+					console.log('PUSH: registered for token: ' + data.registrationId);
 					store.setItem('pushToken', data.registrationId);
                     app.storeToken(data.registrationId);
 				});
