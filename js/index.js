@@ -425,7 +425,7 @@ var app = {
                     console.log('opening ' + data.href);
                     if (typeof data.refresh_on_close != 'undefined') {
                         newWindow.addEventListener('loadstop', function(event) {
-                            if (event.url.match(schoolDomain)) {
+                            if (event.url.startsWith(schoolProtocol + '://' + schoolDomain)) {
                                 newWindow.close();
                                 var contentFrame = document.getElementById('contentFrame');
                                 contentFrame.contentWindow.location = contentFrame.contentWindow.location.href + '&sso_native_apps_alert=false';
