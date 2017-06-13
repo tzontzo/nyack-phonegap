@@ -181,7 +181,6 @@ var app = {
     loadingStart: function() {
         app.updateStatusMessage('');
         isPageLoaded = false;
-
         if (app.checkConnection()) {
             //connectionTimeout = setTimeout(app.checkTimeout,connectionTimeoutSeconds*1000);
             app.toggleLoader(true);
@@ -237,10 +236,14 @@ var app = {
             closeThinNav();
         }
         app.enableRefreshHeader();
+        //$('#splashScreen').hide();
         //if(!$('header').is(':visible'))
         //console.log("Page history: "+pageHistory);
     },
     receiveExternalMessage: function(data, origin) {
+        $('#splashScreen').fadeOut(700);
+        $('#infoBar, #contentFrame').fadeIn(700);
+        $('body').css('background', '#FFF');
         switch (data.method) {
             case 'toggleLoader':
                 if (data.action == 'start') {
@@ -427,7 +430,7 @@ var app = {
                     console.log('opening ' + data.href);
                     if (typeof data.refresh_on_close != 'undefined') {
                         newWindow.addEventListener('loadstop', function(event) {
-                            if (event.url.match(schoolDomain)) {
+                            if (event.url.startsWith(schoolProtocol + '://' + schoolDomain)) {
                                 newWindow.close();
                                 var contentFrame = document.getElementById('contentFrame');
                                 contentFrame.contentWindow.location = contentFrame.contentWindow.location.href + '&sso_native_apps_alert=false';
@@ -1474,7 +1477,7 @@ $(document).ready(function() {
 
     $('body, #contentFrame, #loadingOverlay').css({
         width: $(window).width(),
-        height: $(window).height() - (navigator.userAgent.match(/Android/i) ? 10 : 20)
+        height: $(window).height() - (navigator.userAgent.match(/Android/i) ? 0 : 20)
     });
     $('header').css('width', $(window).width());
 
@@ -1486,6 +1489,6 @@ $(document).ready(function() {
         $('.editorContainer').hide();
         editor.destroy();
     });
-
+    
     var globalWindowHeight = $(window).height();
 });

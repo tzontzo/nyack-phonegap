@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.medpower.nyack.android" version="1.02" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="org.medpower.nyack.android" version="1.03" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Nyack Hospital</name>
     <description>
         Anytime access to custom education materials via online micro-learning modules.
@@ -8,8 +8,12 @@
         MedPower
     </author>
     <content src="index.html" />
+    <preference name="LoadUrlTimeoutValue" value="70000"/>
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
+    <preference name="SplashScreen" value="screen"/>
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="SplashScreenDelay" value="10000" />
     <icon src="icon.png" />
     <platform name="android">
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
@@ -18,18 +22,18 @@
         <icon density="xhdpi" src="www/res/icon/android/drawable-xhdpi-icon.png" />
         <icon density="xxhdpi" src="www/res/icon/android/drawable-xxhdpi-icon.png" />
         <icon density="xxxhdpi" src="www/res/icon/android/drawable-xxxhdpi-icon.png" />
-        <splash density="land-ldpi" src="www/res/screen/android/drawable-land-ldpi-screen.png" />
-        <splash density="land-mdpi" src="www/res/screen/android/drawable-land-mdpi-screen.png" />
-        <splash density="land-hdpi" src="www/res/screen/android/drawable-land-hdpi-screen.png" />
-        <splash density="land-xhdpi" src="www/res/screen/android/drawable-land-xhdpi-screen.png" />
-        <splash density="land-xxhdpi" src="www/res/screen/android/drawable-land-xxhdpi-screen.png" />
-        <splash density="land-xxxhdpi" src="www/res/screen/android/drawable-land-xxxhdpi-screen.png" />
-        <splash density="port-ldpi" src="www/res/screen/android/drawable-port-ldpi-screen.png" />
-        <splash density="port-mdpi" src="www/res/screen/android/drawable-port-mdpi-screen.png" />
-        <splash density="port-hdpi" src="www/res/screen/android/drawable-port-hdpi-screen.png" />
-        <splash density="port-xhdpi" src="www/res/screen/android/drawable-port-xhdpi-screen.png" />
-        <splash density="port-xxhdpi" src="www/res/screen/android/drawable-port-xxhdpi-screen.png" />
-        <splash density="port-xxxhdpi" src="www/res/screen/android/drawable-port-xxxhdpi-screen.png" />
+        <splash platform="android" qualifier="land-ldpi" src="www/res/screen/android/drawable-land-ldpi-screen.png" />
+        <splash platform="android" qualifier="land-mdpi" src="www/res/screen/android/drawable-land-mdpi-screen.png" />
+        <splash platform="android" qualifier="land-hdpi" src="www/res/screen/android/drawable-land-hdpi-screen.png" />
+        <splash platform="android" qualifier="land-xhdpi" src="www/res/screen/android/drawable-land-xhdpi-screen.png" />
+        <splash platform="android" qualifier="land-xxhdpi" src="www/res/screen/android/drawable-land-xxhdpi-screen.png" />
+        <splash platform="android" qualifier="land-xxxhdpi" src="www/res/screen/android/drawable-land-xxxhdpi-screen.png" />
+        <splash platform="android" qualifier="port-ldpi" src="www/res/screen/android/drawable-port-ldpi-screen.png" />
+        <splash platform="android" qualifier="port-mdpi" src="www/res/screen/android/drawable-port-mdpi-screen.png" />
+        <splash platform="android" qualifier="port-hdpi" src="www/res/screen/android/drawable-port-hdpi-screen.png" />
+        <splash platform="android" qualifier="port-xhdpi" src="www/res/screen/android/drawable-port-xhdpi-screen.png" />
+        <splash platform="android" qualifier="port-xxhdpi" src="www/res/screen/android/drawable-port-xxhdpi-screen.png" />
+        <splash platform="android" qualifier="port-xxxhdpi" src="www/res/screen/android/drawable-port-xxxhdpi-screen.png" />
     </platform>
     <platform name="ios">
         <icon height="57" platform="ios" src="www/res/icon/ios/icon.png" width="57" />
